@@ -4,49 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sociovoices - Welcome</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Open Sans', Arial, sans-serif;
             background: linear-gradient(to bottom, #e0f7fa, #ffffff);
             color: #333;
             min-height: 100vh;
+            letter-spacing: 0.01em;
         }
         header {
             background: #00796b;
             color: #fff;
-            padding: 1.2em 0;
+            padding: 2.5em 0 1.5em 0;
             text-align: center;
+        }
+        header h1 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+            color: #ffd600;
+            letter-spacing: 0.04em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 0;
+            color: #e0f7fa;
         }
         nav {
             background: #004d40;
             display: flex;
             justify-content: center;
-            gap: 2em;
-            padding: 1em 0;
+            gap: 2.5em;
+            padding: 1.3em 0;
+            position: relative;
         }
         nav a {
             color: #e0f7fa;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: color 0.2s;
+            font-weight: 600;
+            font-size: 1.15em;
+            transition: color 0.2s, background 0.2s;
+            padding: 0.4em 1.1em;
+            border-radius: 4px;
         }
         nav a:hover, nav a.active {
-            color: #ffd600;
+            color: #004d40;
+            background: #ffd600;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #004d40;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+            z-index: 1;
+            left: 0;
+            border-radius: 0 0 8px 8px;
+        }
+        .dropdown-content a {
+            color: #e0f7fa;
+            padding: 1em 1.5em;
+            text-decoration: none;
+            display: block;
+            font-size: 1em;
+            font-weight: 400;
+            border-radius: 0;
+        }
+        .dropdown-content a:hover, .dropdown-content a.active {
+            background-color: #ffd600;
+            color: #004d40;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
         .content {
-            max-width: 700px;
-            margin: 2em auto;
-            padding: 2em;
-            background: rgba(255,255,255,0.95);
-            border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 2.5em auto;
+            padding: 2.5em 2em;
+            background: rgba(255,255,255,0.97);
+            border-radius: 16px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 2em auto;
+            max-width: 220px;
+            width: 60%;
+            height: auto;
+        }
+        h2 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #00796b;
+            font-size: 2em;
+            margin-top: 0.5em;
+            margin-bottom: 0.7em;
+            letter-spacing: 0.03em;
+        }
+        ul {
+            padding-left: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        li {
+            margin-bottom: 0.7em;
+            font-size: 1.08em;
+        }
+        p, li {
+            line-height: 1.7;
         }
         @media (max-width: 600px) {
             .content { padding: 1em; }
             nav { flex-direction: column; gap: 1em; }
+            .dropdown-content { position: static; min-width: 100%; box-shadow: none; }
+            .logo { max-width: 120px; }
+            h2 { font-size: 1.3em; }
         }
     </style>
     <script>
@@ -54,7 +133,8 @@
             document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
             document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
             document.getElementById(sectionId).style.display = 'block';
-            document.getElementById('nav-' + sectionId).classList.add('active');
+            var navLink = document.getElementById('nav-' + sectionId);
+            if (navLink) navLink.classList.add('active');
         }
         window.onload = function() {
             showSection('welcome');
@@ -68,21 +148,46 @@
     </header>
     <nav>
         <a href="#" id="nav-welcome" onclick="showSection('welcome');return false;">Home</a>
-        <a href="#" id="nav-about" onclick="showSection('about');return false;">About</a>
+        <div class="dropdown">
+            <a href="#" id="nav-about" onclick="showSection('about');return false;">About Us</a>
+            <div class="dropdown-content">
+                <a href="#" id="nav-vision" onclick="showSection('vision');return false;">Our Vision</a>
+                <a href="#" id="nav-mission" onclick="showSection('mission');return false;">Our Mission</a>
+                <a href="#" id="nav-values" onclick="showSection('values');return false;">Our Defining Values</a>
+            </div>
+        </div>
         <a href="#" id="nav-contact" onclick="showSection('contact');return false;">Contact</a>
     </nav>
     <div class="content">
         <section id="welcome" class="section">
+            <img src="images/Logo.png" alt="SocioVoices Logo" class="logo">
             <h2>Welcome</h2>
-            <p>Thank you for visiting Sociovoices! We're building a space for global conversations and meaningful connections. Stay tuned for exciting updates.</p>
+            <p>Thank you for visiting Sociovoices! This is a space for meaningful conversations uncovering diverse perspectives with Sociology PhDs.</p>
         </section>
         <section id="about" class="section" style="display:none;">
-            <h2>About Sociovoices</h2>
-            <p>Sociovoices aims to connect people worldwide through open dialogue and shared experiences. Our mission is to foster understanding and build a vibrant, inclusive community.</p>
+            <img src="images/cover.png" alt="SocioVoices Cover" class="logo">
+        </section>
+        <section id="vision" class="section" style="display:none;">
+            <h2>Our Vision</h2>
+            <p>SocioVoices is a not-for-profit organization dedicated to creating inclusive spaces where diverse voices and lived experiences are heard, shared, and valued. We envision a society where storytelling becomes a powerful tool for connection, healing and change—one in which everyone, regardless of background, feels seen and empowered to speak.</p>
+        </section>
+        <section id="mission" class="section" style="display:none;">
+            <h2>Our Mission</h2>
+            <p>We use storytelling to spark understanding, challenge inequity, and build collective strength. SocioVoices promotes inclusive dialogue that centers underrepresented perspectives—especially those often left out of mainstream conversations. At the heart of our work are the stories of individuals who, in their own unique ways, strive for a better life while making meaningful contributions to their communities and society. We believe in the power of real voices to shift narratives, foster empathy, and drive meaningful action toward a more just and equitable society.</p>
+        </section>
+        <section id="values" class="section" style="display:none;">
+            <h2>Our Defining Values</h2>
+            <ul>
+                <li>Authentic Storytelling</li>
+                <li>Equity and Belonging</li>
+                <li>Collaboration and Co-Creation</li>
+                <li>Compassionate Listening</li>
+                <li>Interconnectedness and Inclusion</li>
+            </ul>
         </section>
         <section id="contact" class="section" style="display:none;">
             <h2>Contact Us</h2>
-            <p>Have questions or want to join our journey? Email us at <a href="mailto:info@sociovoices.com">info@sociovoices.com</a> or follow us on social media.</p>
+            <p>Have questions or want to join our journey? Email us at <a href="mailto:sociovoices@gmail.com">sociovoices@gmail.com</a> or follow us on social media.</p>
         </section>
     </div>
 </body>
