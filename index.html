@@ -22,6 +22,7 @@
             color: #fff;
             padding: 2.5em 0 1.5em 0;
             text-align: center;
+            position: relative;
         }
         header h1 {
             font-family: 'Montserrat', Arial, sans-serif;
@@ -136,13 +137,27 @@
             var navLink = document.getElementById('nav-' + sectionId);
             if (navLink) navLink.classList.add('active');
         }
+        function switchLanguage(lang) {
+            if (lang === 'cn') {
+                document.querySelectorAll('.section-en').forEach(sec => sec.style.display = 'none');
+                document.querySelectorAll('.section-cn').forEach(sec => sec.style.display = 'block');
+            } else {
+                document.querySelectorAll('.section-cn').forEach(sec => sec.style.display = 'none');
+                document.querySelectorAll('.section-en').forEach(sec => sec.style.display = 'block');
+            }
+        }
         window.onload = function() {
             showSection('welcome');
+            switchLanguage('en');
         }
     </script>
 </head>
 <body>
     <header>
+        <div style="position: absolute; left: 1.5em; top: 1.5em;">
+            <a href="#" id="lang-cn" title="中文 Chinese" style="font-size: 1.7em; text-decoration: none; color: #ffd600;" onclick="switchLanguage('cn');return false;">🌐</a>
+            <a href="#" id="lang-en" title="English" style="font-size: 1.7em; text-decoration: none; color: #ffd600; margin-left: 0.5em;" onclick="switchLanguage('en');return false;">EN</a>
+        </div>
         <h1>Welcome to Sociovoices</h1>
         <p>Your platform for making connections across the world.</p>
     </header>
@@ -159,23 +174,24 @@
         <a href="#" id="nav-contact" onclick="showSection('contact');return false;">Contact</a>
     </nav>
     <div class="content">
-        <section id="welcome" class="section">
+        <!-- English Sections -->
+        <section id="welcome" class="section section-en">
             <img src="images/Logo.png" alt="SocioVoices Logo" class="logo">
             <h2>Welcome</h2>
             <p>Thank you for visiting Sociovoices! This is a space for meaningful conversations uncovering diverse perspectives with Sociology PhDs.</p>
         </section>
-        <section id="about" class="section" style="display:none;">
+        <section id="about" class="section section-en" style="display:none;">
             <img src="images/Cover.JPG" alt="SocioVoices Cover" class="logo">
         </section>
-        <section id="vision" class="section" style="display:none;">
+        <section id="vision" class="section section-en" style="display:none;">
             <h2>Our Vision</h2>
             <p>SocioVoices is a not-for-profit organization dedicated to creating inclusive spaces where diverse voices and lived experiences are heard, shared, and valued. We envision a society where storytelling becomes a powerful tool for connection, healing and change—one in which everyone, regardless of background, feels seen and empowered to speak.</p>
         </section>
-        <section id="mission" class="section" style="display:none;">
+        <section id="mission" class="section section-en" style="display:none;">
             <h2>Our Mission</h2>
             <p>We use storytelling to spark understanding, challenge inequity, and build collective strength. SocioVoices promotes inclusive dialogue that centers underrepresented perspectives—especially those often left out of mainstream conversations. At the heart of our work are the stories of individuals who, in their own unique ways, strive for a better life while making meaningful contributions to their communities and society. We believe in the power of real voices to shift narratives, foster empathy, and drive meaningful action toward a more just and equitable society.</p>
         </section>
-        <section id="values" class="section" style="display:none;">
+        <section id="values" class="section section-en" style="display:none;">
             <h2>Our Defining Values</h2>
             <ul>
                 <li>Authentic Storytelling</li>
@@ -185,9 +201,40 @@
                 <li>Interconnectedness and Inclusion</li>
             </ul>
         </section>
-        <section id="contact" class="section" style="display:none;">
+        <section id="contact" class="section section-en" style="display:none;">
             <h2>Contact Us</h2>
             <p>Have questions or want to join our journey? Email us at <a href="mailto:sociovoices@gmail.com">sociovoices@gmail.com</a> or follow us on social media.</p>
+        </section>
+        <!-- Chinese Sections -->
+        <section id="welcome-cn" class="section section-cn" style="display:none;">
+            <img src="images/Logo.png" alt="SocioVoices Logo" class="logo">
+            <h2>欢迎</h2>
+            <p>感谢您访问Sociovoices！这是一个与社会学博士一起探索多元观点、进行有意义对话的空间。</p>
+        </section>
+        <section id="about-cn" class="section section-cn" style="display:none;">
+            <img src="images/Cover.JPG" alt="SocioVoices 封面" class="logo">
+        </section>
+        <section id="vision-cn" class="section section-cn" style="display:none;">
+            <h2>我们的愿景</h2>
+            <p>Sociovoices 是一个非营利组织，致力于创造包容性的空间，让多元声音和真实经历被倾听、分享和重视。我们希望通过讲述故事，成为连接、疗愈和改变的有力工具，让每个人无论背景如何，都能被看见并有勇气发声。</p>
+        </section>
+        <section id="mission-cn" class="section section-cn" style="display:none;">
+            <h2>我们的使命</h2>
+            <p>我们通过讲述故事激发理解、挑战不平等、凝聚集体力量。Sociovoices 推动以包容为核心的对话，关注主流话语中常被忽视的群体。我们的核心是那些以独特方式追求更好生活、为社区和社会做出贡献的真实故事。我们相信真实的声音能够改变叙事、促进共情，并推动社会迈向更加公正与平等。</p>
+        </section>
+        <section id="values-cn" class="section section-cn" style="display:none;">
+            <h2>我们的核心价值观</h2>
+            <ul>
+                <li>真实讲述</li>
+                <li>公平与归属</li>
+                <li>协作与共创</li>
+                <li>同理倾听</li>
+                <li>互联与包容</li>
+            </ul>
+        </section>
+        <section id="contact-cn" class="section section-cn" style="display:none;">
+            <h2>联系我们</h2>
+            <p>有问题或想加入我们？请发送邮件至 <a href="mailto:sociovoices@gmail.com">sociovoices@gmail.com</a>，或关注我们的社交媒体。</p>
         </section>
     </div>
 </body>
