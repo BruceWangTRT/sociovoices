@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sociovoices - Welcome</title>
+    <title>SocioVoices - Welcome</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
@@ -23,18 +23,6 @@
             padding: 2.5em 0 1.5em 0;
             text-align: center;
             position: relative;
-        }
-        header h1 {
-            font-family: 'Montserrat', Arial, sans-serif;
-            font-size: 2.5em;
-            margin-bottom: 0.2em;
-            color: #ffd600;
-            letter-spacing: 0.04em;
-        }
-        header p {
-            font-size: 1.2em;
-            margin-top: 0;
-            color: #e0f7fa;
         }
         nav {
             background: #004d40;
@@ -155,11 +143,12 @@
 <body>
     <header>
         <div style="position: absolute; left: 1.5em; top: 1.5em;">
+            <img src="images/Logo.png" alt="SocioVoices Logo" class="logo" style="max-width: 60px; margin: 0; display: block;">
+        </div>
+        <div style="position: absolute; right: 1.5em; top: 1.5em;">
             <a href="#" id="lang-cn" title="中文 Chinese" style="font-size: 1.7em; text-decoration: none; color: #ffd600;" onclick="switchLanguage('cn');return false;">🌐</a>
             <a href="#" id="lang-en" title="English" style="font-size: 1.7em; text-decoration: none; color: #ffd600; margin-left: 0.5em;" onclick="switchLanguage('en');return false;">EN</a>
         </div>
-        <h1>Welcome to Sociovoices</h1>
-        <p>Your platform for making connections across the world.</p>
     </header>
     <nav>
         <a href="#" id="nav-welcome" onclick="showSection('welcome');return false;">Home</a>
@@ -178,7 +167,7 @@
         <section id="welcome" class="section section-en">
             <img src="images/Logo.png" alt="SocioVoices Logo" class="logo">
             <h2>Welcome</h2>
-            <p>Thank you for visiting Sociovoices! This is a space for meaningful conversations uncovering diverse perspectives with Sociology PhDs.</p>
+            <p>Thank you for visiting SocioVoices! This is a space for meaningful conversations uncovering diverse perspectives with Sociology PhDs.</p>
         </section>
         <section id="about" class="section section-en" style="display:none;">
             <img src="images/Cover.JPG" alt="SocioVoices Cover" class="logo">
@@ -204,23 +193,26 @@
         <section id="contact" class="section section-en" style="display:none;">
             <h2>Contact Us</h2>
             <p>Have questions or want to join our journey? Email us at <a href="mailto:sociovoices@gmail.com">sociovoices@gmail.com</a> or follow us on social media.</p>
+            <a href="https://www.linkedin.com/company/sociovoices/" target="_blank" style="display:inline-block; vertical-align:middle; margin-top:1em;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="#0077b5" style="vertical-align:middle;"><rect width="32" height="32" rx="6" fill="#fff"/><path d="M27 27h-4.6v-6.5c0-1.5-.5-2.5-1.8-2.5-1 0-1.5.7-1.8 1.4-.1.2-.1.5-.1.8V27h-4.6s.1-12 0-13.2h4.6v1.9c.6-.9 1.6-2.1 3.9-2.1 2.8 0 4.9 1.8 4.9 5.5V27zM8.2 11.6c-1.6 0-2.7-1.1-2.7-2.5 0-1.4 1.1-2.5 2.7-2.5s2.7 1.1 2.7 2.5c0 1.4-1.1 2.5-2.7 2.5zm-2.3 15.4h4.6V13.8H5.9v13.2z"/></svg>
+            </a>
         </section>
         <!-- Chinese Sections -->
         <section id="welcome-cn" class="section section-cn" style="display:none;">
             <img src="images/Logo.png" alt="SocioVoices Logo" class="logo">
             <h2>欢迎</h2>
-            <p>感谢您访问Sociovoices！这是一个与社会学博士一起探索多元观点、进行有意义对话的空间。</p>
+            <p>感谢您访问SocioVoices！这是一个与社会学博士一起探索多元观点、进行有意义对话的空间。</p>
         </section>
         <section id="about-cn" class="section section-cn" style="display:none;">
             <img src="images/Cover.JPG" alt="SocioVoices 封面" class="logo">
         </section>
         <section id="vision-cn" class="section section-cn" style="display:none;">
             <h2>我们的愿景</h2>
-            <p>Sociovoices 是一个非营利组织，致力于创造包容性的空间，让多元声音和真实经历被倾听、分享和重视。我们希望通过讲述故事，成为连接、疗愈和改变的有力工具，让每个人无论背景如何，都能被看见并有勇气发声。</p>
+            <p>SocioVoices 是一个非营利组织，致力于创造包容性的空间，让多元声音和真实经历被倾听、分享和重视。我们希望通过讲述故事，成为连接、疗愈和改变的有力工具，让每个人无论背景如何，都能被看见并有勇气发声。</p>
         </section>
         <section id="mission-cn" class="section section-cn" style="display:none;">
             <h2>我们的使命</h2>
-            <p>我们通过讲述故事激发理解、挑战不平等、凝聚集体力量。Sociovoices 推动以包容为核心的对话，关注主流话语中常被忽视的群体。我们的核心是那些以独特方式追求更好生活、为社区和社会做出贡献的真实故事。我们相信真实的声音能够改变叙事、促进共情，并推动社会迈向更加公正与平等。</p>
+            <p>我们通过讲述故事激发理解、挑战不平等、凝聚集体力量。SocioVoices 推动以包容为核心的对话，关注主流话语中常被忽视的群体。我们的核心是那些以独特方式追求更好生活、为社区和社会做出贡献的真实故事。我们相信真实的声音能够改变叙事、促进共情，并推动社会迈向更加公正与平等。</p>
         </section>
         <section id="values-cn" class="section section-cn" style="display:none;">
             <h2>我们的核心价值观</h2>
@@ -235,6 +227,9 @@
         <section id="contact-cn" class="section section-cn" style="display:none;">
             <h2>联系我们</h2>
             <p>有问题或想加入我们？请发送邮件至 <a href="mailto:sociovoices@gmail.com">sociovoices@gmail.com</a>，或关注我们的社交媒体。</p>
+            <a href="https://www.linkedin.com/company/sociovoices/" target="_blank" style="display:inline-block; vertical-align:middle; margin-top:1em;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="#0077b5" style="vertical-align:middle;"><rect width="32" height="32" rx="6" fill="#fff"/><path d="M27 27h-4.6v-6.5c0-1.5-.5-2.5-1.8-2.5-1 0-1.5.7-1.8 1.4-.1.2-.1.5-.1.8V27h-4.6s.1-12 0-13.2h4.6v1.9c.6-.9 1.6-2.1 3.9-2.1 2.8 0 4.9 1.8 4.9 5.5V27zM8.2 11.6c-1.6 0-2.7-1.1-2.7-2.5 0-1.4 1.1-2.5 2.7-2.5s2.7 1.1 2.7 2.5c0 1.4-1.1 2.5-2.7 2.5zm-2.3 15.4h4.6V13.8H5.9v13.2z"/></svg>
+            </a>
         </section>
     </div>
 </body>
